@@ -1,5 +1,5 @@
 #' @export
-gravitree <- function(x, m, k = NULL, sample = 1, na_rm = FALSE) {
+gravitree <- function(x, m, k = NULL, sample = 1, random = TRUE, na_rm = FALSE) {
   if (!is.matrix(x)) {
     x <- as.matrix(x)
   }
@@ -25,7 +25,12 @@ gravitree <- function(x, m, k = NULL, sample = 1, na_rm = FALSE) {
   }
 
   if (sample < 1) {
-    ix <- sample(1:nr, nr * sample, prob = m)
+    if (random) {
+      ix <- sample(1:nr, nr * sample, prob = m)
+    } else {
+      ix <- order(m, decreasing = TRUE)[1:(nr * sample)]
+    }
+
     notix <- which(!(1:nr %in% ix))
     xx <- x[ix, , drop = FALSE]
     mm <- m[ix, , drop = FALSE]
