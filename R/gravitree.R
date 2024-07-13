@@ -49,12 +49,6 @@ gravitree <- function(x, m, k = NULL, sample = 1, na_rm = FALSE) {
       ix <- cluster == i
       .wcov(xx[ix, , drop = FALSE], mm[ix])
     })
-    # tmp <- rep(NA, nr)
-    # tmp[ix] <- cluster
-    # tmp[notix] <- Rfast::rowMins(sapply(1:k, function(i) {
-    #   .Mahalanobis(x[notix, , drop = FALSE], centers[[i]]$center, centers[[i]]$cov)
-    # }))
-    # cluster <- tmp
   } else {
     centers <- lapply(1:k, function(i) {
       ix <- cluster == i
