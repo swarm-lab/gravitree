@@ -11,6 +11,7 @@ License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+VignetteBuilder: knitr
 URL: https://github.com/swarm-lab/gravitree, https://swarm-lab.github.io/gravitree/
 BugReports: https://github.com/swarm-lab/gravitree/issues
 LinkingTo: 
@@ -21,3 +22,11 @@ Imports:
     Rfast,
     fastcluster,
     stats
+Suggests: 
+    knitr,
+    rmarkdown,
+    ggplot2,
+    dplyr,
+    palmerpenguins,
+    MASS
+LazyData: true
